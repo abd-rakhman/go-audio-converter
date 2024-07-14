@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  audio-goapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: goapp
+    env_file:
+      .env
+    ports:
+      - "${BIND_ADDRESS}:${BIND_ADDRESS}"
