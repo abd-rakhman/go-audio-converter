@@ -164,7 +164,7 @@ func (s *server) forwardFile(filename, bridge, aiType string) error {
 	buf.ReadFrom(resp.Body)
 	s.logger.Printf("Response Body: %s\n", buf.String())
 
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusCreated {
 		return fmt.Errorf("failed to forward file: %s", resp.Status)
 	}
 

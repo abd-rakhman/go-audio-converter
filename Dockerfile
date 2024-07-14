@@ -19,6 +19,9 @@ RUN go build -o main -v ./cmd/apiserver/main.go
 # Start a new stage from scratch
 FROM alpine:latest
 
+# Install FFmpeg
+RUN apk add --no-cache ffmpeg
+
 # Set the Current Working Directory inside the container
 WORKDIR /root/
 
